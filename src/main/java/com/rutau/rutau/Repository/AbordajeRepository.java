@@ -1,6 +1,6 @@
-package com.rutau.repository;
+package com.rutau.rutau.Repository;
 
-import com.rutau.entity.Abordaje;
+import com.rutau.rutau.Entity.Abordaje;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

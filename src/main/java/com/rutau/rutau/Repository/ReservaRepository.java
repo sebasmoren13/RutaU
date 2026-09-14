@@ -1,6 +1,6 @@
-package com.rutau.repository;
+package com.rutau.rutau.Repository;
 
-import com.rutau.entity.Reserva;
+import com.rutau.rutau.Entity.Reserva;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

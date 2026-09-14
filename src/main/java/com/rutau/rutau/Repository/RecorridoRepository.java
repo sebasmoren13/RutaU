@@ -1,6 +1,6 @@
-package com.rutau.repository;
+package com.rutau.rutau.Repository;
 
-import com.rutau.entity.Recorrido;
+import com.rutau.rutau.Entity.Recorrido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;

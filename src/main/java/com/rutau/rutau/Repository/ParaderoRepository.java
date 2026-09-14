@@ -1,6 +1,6 @@
-package com.rutau.repository;
+package com.rutau.rutau.Repository;
 
-import com.rutau.entity.Paradero;
+import com.rutau.rutau.Entity.Paradero;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
