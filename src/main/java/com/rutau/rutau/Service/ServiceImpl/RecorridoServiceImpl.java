@@ -31,25 +31,25 @@ public class RecorridoServiceImpl implements RecorridoService {
     }
 
     @Override
-    public List<Recorrido> listarPorRutaYFecha(Long idRuta, LocalDate fecha) {
-        return recorridoRepository.findByIdRutaAndFecha(idRuta, fecha);
+    public List<Recorrido> listarPorRutaYFecha(Long rutaId, LocalDate fecha) {
+        return recorridoRepository.findByRutaIdAndFecha(rutaId, fecha);
     }
 
     @Override
-    public List<Recorrido> listarDisponibles(Long idRuta, LocalDate fecha) {
-        return recorridoRepository.findDisponiblesPorRutaYFecha(idRuta, fecha);
+    public List<Recorrido> listarDisponibles(Long rutaId, LocalDate fecha) {
+        return recorridoRepository.findDisponiblesPorRutaYFecha(rutaId, fecha);
     }
 
     @Override
     @Transactional
-    public Recorrido obtenerParaActualizarCupo(Long idRecorrido) {
-        return recorridoRepository.findByIdForUpdate(idRecorrido)
+    public Recorrido obtenerParaActualizarCupo(Long recorridoId) {
+        return recorridoRepository.findByIdForUpdate(recorridoId)
                 .orElseThrow(() -> new ResourceNotFoundException("Recorrido no encontrado"));
     }
 
     @Override
-    public void cambiarEstado(Long idRecorrido, String nuevoEstado) {
-        Recorrido recorrido = recorridoRepository.findById(idRecorrido)
+    public void cambiarEstado(Long recorridoId, String nuevoEstado) {
+        Recorrido recorrido = recorridoRepository.findById(recorridoId)
                 .orElseThrow(() -> new ResourceNotFoundException("Recorrido no encontrado"));
         recorrido.setEstado(nuevoEstado);
         recorridoRepository.save(recorrido);

@@ -9,7 +9,7 @@ public interface UsuarioService {
     Optional<Usuario> buscarPorId(Long id);
     Optional<Usuario> buscarPorCorreo(String correo);
     List<Usuario> listarTodos();
-    void actualizarEstado(Long idUsuario, String nuevoEstado);
-    void asignarRol(Long idUsuario, String nuevoRol);
-    void incrementarNoShows(Long idUsuario);
+    void actualizarEstado(Long usuarioId, String nuevoEstado);
+    void asignarRol(Long usuarioId, String nuevoRol);
+    void incrementarNoShows(Long usuarioId);
 }

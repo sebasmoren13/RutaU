@@ -28,13 +28,13 @@ public class ParaderoServiceImpl implements ParaderoService {
     }
 
     @Override
-    public List<Paradero> obtenerParaderosPorRuta(Long idRuta) {
-        return paraderoRepository.findByIdRutaOrderByOrdenParadaAsc(idRuta);
+    public List<Paradero> obtenerParaderosPorRuta(Long rutaId) {
+        return paraderoRepository.findByRutaIdOrderByOrdenParadaAsc(rutaId);
     }
 
     @Override
-    public void actualizarUbicacion(Long idParadero, Double latitud, Double longitud) {
-        Paradero paradero = paraderoRepository.findById(idParadero)
+    public void actualizarUbicacion(Long paraderoId, Double latitud, Double longitud) {
+        Paradero paradero = paraderoRepository.findById(paraderoId)
                 .orElseThrow(() -> new ResourceNotFoundException("Paradero no encontrado"));
         paradero.setLatitud(latitud);
         paradero.setLongitud(longitud);

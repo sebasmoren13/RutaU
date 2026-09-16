@@ -9,5 +9,5 @@ public interface RutaService {
     Optional<Ruta> buscarPorId(Long id);
     List<Ruta> buscarPorOrigenYDestino(String origen, String destino);
     List<Ruta> listarPorEstado(String estado);
-    void cambiarEstado(Long idRuta, String nuevoEstado);
+    void cambiarEstado(Long rutaId, String nuevoEstado);
 }

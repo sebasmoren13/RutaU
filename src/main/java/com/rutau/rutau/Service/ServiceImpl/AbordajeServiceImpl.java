@@ -29,7 +29,7 @@ public class AbordajeServiceImpl implements AbordajeService {
     }
 
     @Override
-    public Abordaje registrarAbordaje(String codigoQr, Long idConductor) {
+    public Abordaje registrarAbordaje(String codigoQr, Long conductorId) {
         Reserva reserva = reservaRepository.findByCodigoQr(codigoQr)
                 .orElseThrow(() -> new ResourceNotFoundException("Reserva no encontrada para el código QR"));
 
@@ -40,7 +40,7 @@ public class AbordajeServiceImpl implements AbordajeService {
             throw new ReglaNegocioException("Esta reserva ya fue abordada");
         }
 
-        Usuario conductor = usuarioRepository.findById(idConductor)
+        Usuario conductor = usuarioRepository.findById(conductorId)
                 .orElseThrow(() -> new ResourceNotFoundException("Conductor no encontrado"));
 
         Abordaje abordaje = new Abordaje();
@@ -56,12 +56,12 @@ public class AbordajeServiceImpl implements AbordajeService {
     }
 
     @Override
-    public Optional<Abordaje> buscarPorReserva(Long idReserva) {
-        return abordajeRepository.findByReservaId(idReserva);
+    public Optional<Abordaje> buscarPorReserva(Long reservaId) {
+        return abordajeRepository.findByReservaId(reservaId);
     }
 
     @Override
-    public boolean yaFueAbordado(Long idReserva) {
-        return abordajeRepository.existsByReservaId(idReserva);
+    public boolean yaFueAbordado(Long reservaId) {
+        return abordajeRepository.existsByReservaId(reservaId);
     }
 }

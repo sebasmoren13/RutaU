@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ReservaService {
-    Reserva crearReserva(Long idUsuario, Long idRecorrido, Long idParadero);
+    Reserva crearReserva(Long usuarioId, Long recorridoId, Long paraderoId);
     Optional<Reserva> buscarPorId(Long id);
     Optional<Reserva> buscarPorCodigoQr(String codigoQr);
-    List<Reserva> listarPorUsuario(Long idUsuario);
-    List<Reserva> listarPorUsuarioYEstado(Long idUsuario, String estado);
-    void cancelarReserva(Long idReserva);
-    boolean verificarConflictosHorario(Long idUsuario, Long idRecorrido);
+    List<Reserva> listarPorUsuario(Long usuarioId);
+    List<Reserva> listarPorUsuarioYEstado(Long usuarioId, String estado);
+    void cancelarReserva(Long reservaId);
+    boolean verificarConflictosHorario(Long usuarioId, Long recorridoId);
 }

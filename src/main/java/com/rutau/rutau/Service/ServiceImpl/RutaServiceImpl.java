@@ -38,8 +38,8 @@ public class RutaServiceImpl implements RutaService {
     }
 
     @Override
-    public void cambiarEstado(Long idRuta, String nuevoEstado) {
-        Ruta ruta = rutaRepository.findById(idRuta)
+    public void cambiarEstado(Long rutaId, String nuevoEstado) {
+        Ruta ruta = rutaRepository.findById(rutaId)
                 .orElseThrow(() -> new ResourceNotFoundException("Ruta no encontrada"));
         ruta.setEstado(nuevoEstado);
         rutaRepository.save(ruta);

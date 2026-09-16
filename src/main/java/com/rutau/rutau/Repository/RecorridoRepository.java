@@ -12,14 +12,13 @@ import java.util.Optional;
 
 public interface RecorridoRepository extends JpaRepository<Recorrido, Long> {
 
-    List<Recorrido> findByIdRutaAndFecha(Long idRuta, LocalDate fecha);
+    List<Recorrido> findByRutaIdAndFecha(Long idRuta, LocalDate fecha);
 
-    @Query("SELECT r FROM Recorrido r WHERE r.idRuta = :idRuta " +
-            "AND r.fecha = :fecha AND r.cupos_disponibles > 0")
+    @Query("SELECT r FROM Recorrido r WHERE r.ruta.id = :idRuta " +
+            "AND r.fecha = :fecha AND r.cuposDisponibles > 0")
     List<Recorrido> findDisponiblesPorRutaYFecha(@Param("idRuta") Long idRuta,
                                                  @Param("fecha") LocalDate fecha);
 
-    // Pesimista: evita condiciones de carrera al descontar cupo (RN01/RN08)
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("SELECT r FROM Recorrido r WHERE r.id = :id")
     Optional<Recorrido> findByIdForUpdate(@Param("id") Long id);

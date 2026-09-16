@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ParaderoRepository extends JpaRepository<Paradero, Long> {
-    List<Paradero> findByIdRutaOrderByOrdenParadaAsc(Long idRuta);
+    List<Paradero> findByRutaIdOrderByOrdenParadaAsc(Long idRuta);
 }

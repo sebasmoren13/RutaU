@@ -8,8 +8,8 @@ import java.util.Optional;
 public interface RecorridoService {
     Recorrido programarRecorrido(Recorrido recorrido);
     Optional<Recorrido> buscarPorId(Long id);
-    List<Recorrido> listarPorRutaYFecha(Long idRuta, LocalDate fecha);
-    List<Recorrido> listarDisponibles(Long idRuta, LocalDate fecha);
-    Recorrido obtenerParaActualizarCupo(Long idRecorrido);
-    void cambiarEstado(Long idRecorrido, String nuevoEstado);
+    List<Recorrido> listarPorRutaYFecha(Long rutaId, LocalDate fecha);
+    List<Recorrido> listarDisponibles(Long rutaId, LocalDate fecha);
+    Recorrido obtenerParaActualizarCupo(Long recorridoId);
+    void cambiarEstado(Long recorridoId, String nuevoEstado);
 }

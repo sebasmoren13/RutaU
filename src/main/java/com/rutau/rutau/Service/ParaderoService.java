@@ -7,6 +7,6 @@ import java.util.Optional;
 public interface ParaderoService {
     Paradero crearParadero(Paradero paradero);
     Optional<Paradero> buscarPorId(Long id);
-    List<Paradero> obtenerParaderosPorRuta(Long idRuta);
-    void actualizarUbicacion(Long idParadero, Double latitud, Double longitud);
+    List<Paradero> obtenerParaderosPorRuta(Long rutaId);
+    void actualizarUbicacion(Long paraderoId, Double latitud, Double longitud);
 }

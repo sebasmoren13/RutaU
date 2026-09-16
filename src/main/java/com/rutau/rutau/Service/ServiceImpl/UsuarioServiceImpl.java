@@ -42,24 +42,24 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public void actualizarEstado(Long idUsuario, String nuevoEstado) {
-        Usuario usuario = usuarioRepository.findById(idUsuario)
+    public void actualizarEstado(Long usuarioId, String nuevoEstado) {
+        Usuario usuario = usuarioRepository.findById(usuarioId)
                 .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
         usuario.setEstado(nuevoEstado);
         usuarioRepository.save(usuario);
     }
 
     @Override
-    public void asignarRol(Long idUsuario, String nuevoRol) {
-        Usuario usuario = usuarioRepository.findById(idUsuario)
+    public void asignarRol(Long usuarioId, String nuevoRol) {
+        Usuario usuario = usuarioRepository.findById(usuarioId)
                 .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
         usuario.setRol(nuevoRol);
         usuarioRepository.save(usuario);
     }
 
     @Override
-    public void incrementarNoShows(Long idUsuario) {
-        Usuario usuario = usuarioRepository.findById(idUsuario)
+    public void incrementarNoShows(Long usuarioId) {
+        Usuario usuario = usuarioRepository.findById(usuarioId)
                 .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
         int actual = usuario.getNoShowsCount() != null ? usuario.getNoShowsCount() : 0;
         usuario.setNoShowsCount(actual + 1);
