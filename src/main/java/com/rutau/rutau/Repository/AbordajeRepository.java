@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface AbordajeRepository extends JpaRepository<Abordaje, Long> {
-    Optional<Abordaje> findByIdReserva(Long idReserva);
-    boolean existsByIdReserva(Long idReserva);
+    Optional<Abordaje> findByReservaId(Long idReserva);
+    boolean existsByReservaId(Long idReserva);
 }

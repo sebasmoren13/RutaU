@@ -9,15 +9,14 @@ import java.util.Optional;
 
 public interface ReservaRepository extends JpaRepository<Reserva, Long> {
 
-    List<Reserva> findByIdUsuario(Long idUsuario);
+    List<Reserva> findByUsuarioId(Long idUsuario);
 
     Optional<Reserva> findByCodigoQr(String codigoQr);
 
-    List<Reserva> findByIdUsuarioAndEstado(Long idUsuario, String estado);
+    List<Reserva> findByUsuarioIdAndEstado(Long idUsuario, String estado);
 
-    // Para validar traslape de horarios (RN02)
-    @Query("SELECT r FROM Reserva r WHERE r.idUsuario = :idUsuario " +
-            "AND r.estado = 'Pendiente' AND r.idRecorrido = :idRecorrido")
+    @Query("SELECT r FROM Reserva r WHERE r.usuario.id = :idUsuario " +
+            "AND r.estado = 'Pendiente' AND r.recorrido.id = :idRecorrido")
     List<Reserva> findConflictos(@Param("idUsuario") Long idUsuario,
                                  @Param("idRecorrido") Long idRecorrido);
 }
